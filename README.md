@@ -95,13 +95,14 @@ Future:
 | Level 2 | ESP32 Bluetooth Teleoperation | ✅ Completed |
 | Level 3 | PWM Speed Control | ✅ Completed |
 | Level 4 | Servo Scanning | ✅ Complete |
-| Level 5 | Obstacle Avoidance | 🔜 Planned |
-| Level 6 | ESP32 Standalone Robot | 🔜 Planned |
-| Level 7 | ROS 2 Integration | 🔜 Planned |
-| Level 8 | Robot Simulation | 🔜 Planned |
-| Level 9 | Odometry | 🔜 Planned |
-| Level 10 | SLAM | 🔜 Planned |
-| Level 11 | Navigation | 🔜 Planned |
+| Level 5 | UltraSonic Sensor Control | ✅ Complete |
+| Level 6 | Obstacla Avoiding Robot | 🔜 Planned |
+| Level 7 | ESP32 Standalone Robot | 🔜 Planned |
+| Level 8 | ROS 2 Integration | 🔜 Planned |
+| Level 9 | Robot Simulation | 🔜 Planned |
+| Level 10 | Odometry | 🔜 Planned |
+| Level 11 | SLAM | 🔜 Planned |
+| Level 12 | Navigation | 🔜 Planned |
 
 ---
 
@@ -363,6 +364,76 @@ Smooth left-to-right sweep
 Continuous scanning
 
 ## Status
+
+✅ Completed
+
+---
+
+## ✅ Level 5 – Ultrasonic Sensor Integration
+
+### Objective
+
+Integrate an HC-SR04 ultrasonic sensor to provide distance measurement capabilities and establish the perception layer required for autonomous navigation.
+
+### Hardware
+
+- HC-SR04 Ultrasonic Sensor
+- Arduino UNO
+
+### Features
+
+- Raw distance measurement
+- Filtered distance measurement (5-sample averaging)
+- Configurable obstacle detection
+- Range checking API
+- Modular UltrasonicController
+
+### UltrasonicController API
+
+```cpp
+initializeUltrasonic();
+
+getDistance();
+
+getFilteredDistance();
+
+isObstacleDetected(distance, threshold);
+
+isWithinRange(distance, minDistance, maxDistance);
+```
+
+### Validation Tests
+
+- HC-SR04 initialization
+- Distance measurement
+- Filtered sensor readings
+- Obstacle detection threshold
+- Range detection
+- Stable serial output
+
+### Example Output
+
+```
+Ultrasonic Sensor Initialized
+
+Distance : 18.54 cm
+Obstacle Detected
+
+Distance : 42.37 cm
+Path Clear
+```
+
+### Engineering Improvements
+
+Compared to the previous implementation:
+
+- Single sensor measurement per control cycle
+- Consistent decision-making using the same measured value
+- Modular software architecture
+- Filtered measurements for improved stability
+- Timeout handling for invalid echoes
+
+### Status
 
 ✅ Completed
 
