@@ -93,13 +93,15 @@ Future:
 |--------|-------------|--------|
 | Level 1 | Motor Driver Testing | ✅ Completed |
 | Level 2 | ESP32 Bluetooth Teleoperation | ✅ Completed |
-| Level 3 | PWM Speed Control | 🔜 Planned |
-| Level 4 | ESP32 Standalone Robot | 🔜 Planned |
-| Level 5 | ROS 2 Integration | 🔜 Planned |
-| Level 6 | Robot Simulation | 🔜 Planned |
-| Level 7 | Odometry | 🔜 Planned |
-| Level 8 | SLAM | 🔜 Planned |
-| Level 9 | Autonomous Navigation | 🔜 Planned |
+| Level 3 | PWM Speed Control | ✅ Completed |
+| Level 4 | Servo Scanning | 🔜 Planned |
+| Level 5 | Obstacle Avoidance | 🔜 Planned |
+| Level 6 | ESP32 Standalone Robot | 🔜 Planned |
+| Level 7 | ROS 2 Integration | 🔜 Planned |
+| Level 8 | Robot Simulation | 🔜 Planned |
+| Level 9 | Odometry | 🔜 Planned |
+| Level 10 | SLAM | 🔜 Planned |
+| Level 11 | Navigation | 🔜 Planned |
 
 ---
 
@@ -214,6 +216,8 @@ Arduino UNO
 
 ---
 
+
+
 ## Communication Flow
 
 ```
@@ -275,6 +279,49 @@ Implemented Controls
 - Left
 - Right
 - Stop
+
+---
+
+## ✅ Level 3 – PWM Motor Controller
+
+### Objective
+
+Introduce software-controlled motor speed using PWM while redesigning the motor control software into a reusable and modular interface.
+
+### Features
+
+- PWM Speed Control
+- Configurable Speed Parameter
+- Reusable Motor Control API
+- Safe Motor Initialization
+- Modular Software Design
+
+### Implemented API
+
+```cpp
+initializeMotors();
+
+forward(speed);
+
+backward(speed);
+
+left(speed);
+
+right(speed);
+
+stopRobot();
+```
+
+## Engineering Improvements
+
+Replaced fixed-speed motor control with PWM-based control.
+Removed hardware enable jumpers.
+Arduino now controls ENA and ENB using PWM outputs.
+Introduced reusable motion functions for future development.
+
+## Result
+
+The robot can now execute all differential drive motions at variable speeds, providing a scalable foundation for future features such as smooth acceleration, obstacle avoidance, and ROS 2 integration.
 
 ---
 
