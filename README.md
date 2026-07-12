@@ -94,7 +94,7 @@ Future:
 | Level 1 | Motor Driver Testing | ✅ Completed |
 | Level 2 | ESP32 Bluetooth Teleoperation | ✅ Completed |
 | Level 3 | PWM Speed Control | ✅ Completed |
-| Level 4 | Servo Scanning | 🔜 Planned |
+| Level 4 | Servo Scanning | ✅ Complete |
 | Level 5 | Obstacle Avoidance | 🔜 Planned |
 | Level 6 | ESP32 Standalone Robot | 🔜 Planned |
 | Level 7 | ROS 2 Integration | 🔜 Planned |
@@ -322,6 +322,49 @@ Introduced reusable motion functions for future development.
 ## Result
 
 The robot can now execute all differential drive motions at variable speeds, providing a scalable foundation for future features such as smooth acceleration, obstacle avoidance, and ROS 2 integration.
+
+---
+
+## ✅ Level 4 – Servo Motor Integration
+
+### Objective
+
+Integrate an SG90 servo motor to provide precise angular positioning for future sensor scanning.
+
+### Features
+
+- SG90 Servo Integration
+- Position Control (0°–180°)
+- Reusable Servo Controller API
+- Smooth Sweep Motion
+- Environment Scan Function
+
+### Implemented API
+
+```cpp
+initializeServo();
+
+moveTo(angle);
+
+lookLeft();
+
+lookCenter();
+
+lookRight();
+
+scanEnvironment();
+```
+
+## Validation
+
+Servo initialization
+Fixed-angle positioning
+Smooth left-to-right sweep
+Continuous scanning
+
+## Status
+
+✅ Completed
 
 ---
 
